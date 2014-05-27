@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.6-1.40.14 (TeX Live 2014/dev) (format=latex 2014.5.20)  26 MAY 2014 10:32
+This is pdfTeX, Version 3.1415926-2.6-1.40.14 (TeX Live 2014/dev) (format=latex 2014.5.20)  26 MAY 2014 16:37
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1272,7 +1272,14 @@ Package hyperref Info: Option `colorlinks' set `true' on input line 16.
 
 
 Writing index file tcc.idx 
-(./tcc.aux)
+(./tcc.aux
+
+LaTeX Warning: Label `fig:rails-architecture' multiply defined.
+
+
+LaTeX Warning: Label `fig:rails-architecture' multiply defined.
+
+)
 \openout1 = `tcc.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 9.
@@ -1430,11 +1437,10 @@ Overfull \hbox (27.8823pt too wide) in paragraph at lines 2--2
 ] [14
 
 ])
-(./editaveis/simbolos.tex) (./fixos/indiceAutomatico.tex (./tcc.toc) [15]
-[16
-
-]) (./capitulos/1-introducao.tex) (./capitulos/2-participacao_social.tex
+(./editaveis/simbolos.tex) (./fixos/indiceAutomatico.tex (./tcc.toc [15])
+[16]) (./capitulos/1-introducao.tex) (./capitulos/2-participacao_social.tex
 [17
+
 
 ] [18
 
@@ -1446,43 +1452,54 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [21]
 File: figuras/arquitetura-ferramentas-participa.eps Graphic file (type eps)
 
-<figuras/arquitetura-ferramentas-participa.eps>) (./capitulos/4-noosfero.tex
-[22] [23] [24
+<figuras/arquitetura-ferramentas-participa.eps>
+Underfull \vbox (badness 3179) has occurred while \output is active []
 
-]) (./capitulos/5-bibliotecas_digitais.tex [25] [26
+ [22]
+File: figuras/comunidades-tematicas.eps Graphic file (type eps)
+
+<figuras/comunidades-tematicas.eps>
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [23]
+File: figuras/foruns-participacao.eps Graphic file (type eps)
+
+<figuras/foruns-participacao.eps>
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [24])
+(./capitulos/4-noosfero.tex [25] [26
+
+]) (./capitulos/5-bibliotecas_digitais.tex
+[27] [28
 
 ]
 LaTeX Font Info:    Try loading font information for OMS+lmr on input line 17.
-
-(/usr/share/texlive/texmf-dist/tex/latex/lm/omslmr.fd
+ (/usr/share/texlive/texmf-dist/tex/latex/lm/omslmr.fd
 File: omslmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <12> not available
 (Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 17.
- [27])
+ [29])
 (./capitulos/6-biblioteca_digital_participa.tex
 Underfull \vbox (badness 1845) has occurred while \output is active []
 
- [28]
-[29] [30
+ [30]
+[31] [32
 
-]) (./capitulos/7-consideracoes.tex [31] [32
+] [33]) (./capitulos/7-consideracoes.tex [34])
+(./editaveis/apendices.tex [35
 
-] [33]
-Overfull \hbox (22.5331pt too wide) in paragraph at lines 26--36
- [] 
- []
-
-) (./editaveis/apendices.tex [34]
+]
 Package mdframed Info: mdframed works in twoside mode on input line 9.
- [35]
+ [36]
 Package mdframed Info: mdframed works in twoside mode on input line 35.
 Package mdframed Info: mdframed works in twoside mode on input line 40.
 Package mdframed Info: mdframed works in twoside mode on input line 50.
 Package mdframed Info: mdframed works in twoside mode on input line 55.
 Package mdframed Info: mdframed works in twoside mode on input line 64.
 Package mdframed Info: Not enough space on this page on input line 66.
- [36]
+ [37]
 Package mdframed Info: Not enough space on this page on input line 66.
 Package mdframed Info: mdframed works in twoside mode on input line 70.
 Package mdframed Info: mdframed works in twoside mode on input line 80.
@@ -1491,16 +1508,15 @@ Package mdframed Info: mdframed works in twoside mode on input line 85.
 \tf@brf=\write5
 \openout5 = `tcc.brf'.
 
- [37]
-[38
-
-]
+ [38]
 bibitemlist
 )
 No file tcc.ind.
 
 AED: lastpage setting LastPage
-[39]
+[39
+
+]
 \tf@lof=\write6
 \openout6 = `tcc.lof'.
 
@@ -1519,20 +1535,20 @@ Package atveryend Info: Executing hook `AfterLastShipout' on input line 47.
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 47.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 47.
 Package rerunfilecheck Info: File `tcc.brf' has not changed.
-(rerunfilecheck)             Checksum: 893958FF3F3E4D7FF4F3F67F15F8C0B9;231.
+(rerunfilecheck)             Checksum: A6E0FA6F8D9E44BA197A93593C61D795;298.
 
 
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+LaTeX Warning: There were multiply-defined labels.
 
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 47.
  ) 
 Here is how much of TeX's memory you used:
- 19032 strings out of 493352
- 315197 string characters out of 6141728
- 442830 words of memory out of 5000000
- 22090 multiletter control sequences out of 15000+600000
+ 19044 strings out of 493352
+ 315332 string characters out of 6141728
+ 442679 words of memory out of 5000000
+ 22100 multiletter control sequences out of 15000+600000
  75756 words of font info for 52 fonts, out of 8000000 for 9000
  953 hyphenation exceptions out of 8191
  51i,12n,51p,11161b,608s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on tcc.dvi (41 pages, 114020 bytes).
+Output written on tcc.dvi (41 pages, 127804 bytes).
