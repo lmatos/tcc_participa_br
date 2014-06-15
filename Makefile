@@ -28,7 +28,8 @@ CHAPTERS_SOURCES = 1-introducao.tex 2-participacao_social.tex \
 				   3-participa_br.tex 4-noosfero.tex \
 				   5-bibliotecas_digitais.tex \
 				   6-biblioteca_digital_participa.tex \
-				   7-consideracoes.tex
+				   7-estendendo_participa.tex \
+				   8-consideracoes.tex
 
 CHAPTERS_FILES = $(addprefix $(CHAPTERS_DIR)/, $(CHAPTERS_SOURCES))
 

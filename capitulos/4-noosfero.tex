@@ -1,7 +1,8 @@
 \chapter{Noosfero}
-
+\label{cap:noosfero}
 %Introdução
-Neste capítulo iremos discutir o funcionamento e arquitetura do software livre Noosfero\footnote{Maiores informações em: \url{http://www.noosfero.org}}, a plataforma de redes sociais que é utilizada como núcleo do portal do Participa.br. Um dos fatores para a utilização de softwares livres no portal do Participa.br é o fato que o desenvolvimento do software ser colaborativo e todo o conteúdo criado é compartilhado, além de não haver propriedade intelectual sobre os conteúdos gerados na rede social, como foi visto na seção %CITAR DANIEL %Metodologia Participa
+Neste capítulo iremos discutir o funcionamento e arquitetura do software livre Noosfero\footnote{Maiores informações em: \url{http://www.noosfero.org}}, a plataforma de redes sociais que é utilizada como núcleo do portal do Participa.br. Um dos fatores para a utilização de softwares livres no portal do Participa.br é o fato que o desenvolvimento do software ser colaborativo e todo o conteúdo criado é compartilhado, além de não haver propriedade intelectual sobre os conteúdos gerados na rede social, como foi visto na seção~\ref{sub:softwarelivre}.
+
 
 \section{Noosfero: A Plataforma Utilizada no Participa.br}
 %Contexto
@@ -9,24 +10,27 @@ O Noosfero é uma plataforma livre para criação de redes sociais, que está di
 
 A Colivre\footnote{Maiores Informações em: \url{http://www.coolivre.coop.br}} (Cooperativa de tecnologias livres) é a criadora/mantenedora do Noosfero, ela é uma cooperativa sediada em Salvador/BA. Essa cooperativa trabalha exclusivamente com softwares livres, dentre eles, manutenção de redes sociais que utilizam o Noosfero, sites em geral, intranets com Wiki, capacitação de usuários, consultorias, entre outros. Atualmente os desenvolvedores da Colivre mantém o repositório do Noosfero, isto é, eles são responsáveis por revisar os códigos que são enviados pela comunidade e integram ao código do Noosfero.
 
-O Noosfero é escrito na linguagem de programação \textit{Ruby} versão 1.9 (discutido na seção \ref{sec:linguagemruby} e utiliza framework para aplicações web \textit{Ruby on Rails} versão 3.2 (mais detalhes na seção \ref{sub:frameworkrails}. Utiliza também os padrões arquiteturais de software \textit{Model-View-Controller} (MVC), que será discutido na seção \ref{sub:arquiteturamvc} e o padrão básico de plugins, discutido na seção \ref{sub:arquiteturaplugin}. 
+O Noosfero é escrito na linguagem de programação \textit{Ruby} versão 1.9.2 (discutido na seção \ref{sec:linguagemruby} e utiliza framework para aplicações web \textit{Ruby on Rails} versão 3.2 (mais detalhes na seção \ref{sub:frameworkrails}. Utiliza também os padrões arquiteturais de software \textit{Model-View-Controller} (MVC), que será discutido na seção \ref{sub:arquiteturamvc} e o padrão básico de plugins, discutido na seção \ref{sub:arquiteturaplugin}. 
 
-A escolha da linguagem \textit{Ruby} foi decisiva no Noosfero, pois possui uma sintaxe simples, que facilita a manutenibilidade do sistema, característica importante em projetos de software livre que tendem a atrair colaboradores externos a equipe. E o \textit{Rails} como será visto mais adiante na seção \ref{sub:frameworkrails}, possui conceitos que auxiliam em sua produtividade. %CITAR PRMM
+A escolha da linguagem \textit{Ruby} foi decisiva no Noosfero, pois possui uma sintaxe simples, que facilita a manutenibilidade do sistema, característica importante em projetos de software livre que tendem a atrair colaboradores externos a equipe. E o \textit{Rails} como será visto mais adiante na seção \ref{sub:frameworkrails}, possui conceitos que auxiliam em sua produtividade. \cite{meirelles2013metricas}
 
 \section{A Arquitetura de Funcionamento do Noosfero}
 
-Como visto em Fowler (2005), a definição do termo arquitetura em relação a software é bastante confusa e contraditória. Vários autores não concordam sobre uma definição especifica e definem de maneira errônea, logo é necessário se chegar a um ``consenso‘‘ . Segundo Garlan and Perry (1995), uma arquitetura de software é definido como a estrutura de todos componentes que compõe aquele software, assim como suas relações e especificações que vão desde a concepção, desenvolvimento e evolução durante ao longo do ciclo de vida. Já para (Bass, Clements, and Kazman, 1998), a arquitetura de software é definida pela estrutura ou estruturas utilizadas pelo sistema, que são os componentes que fazem parte do software, assim como suas relações, além das propriedades que são visíveis externamente e as relações desses componentes.
+Detalhar alguns dos padrões arquiteturais utilizado no Noosfero é importante para um maior entendimento sobre os elementos essenciais de sua arquitetura e como eles se relacionam, ajudando a evoluir o software de maneira correta, deixando de lado detalhes desnecessários e irrelevantes. Sendo assim, entender a arquitetura de funcionamento do Noosfero é um dos passos iniciais para evolução do Participa.br, e consequentemente atingir os objetivos desta monografia.
 
-Detalhar alguns padrões arquiteturais utilizado no Noosfero é importante, já que o entendimento do sistema será maior sobre os elementos essenciais e suas relações, deixando de lado detalhes desnecessários e irrelevantes. (Software Systems Architecture, Addison Wesley). Sendo assim, o entendimento da arquitetura de funcionamento do Noosfero é um dos passos iniciais para evolução do Participa.br, alcançando os objetivos propostos nesse trabalho.
+A arquitetura de software é definida pela estrutura ou estruturas utilizadas pelo sistema, que são os componentes que fazem parte do software, assim como suas relações, além das propriedades que são visíveis externamente e as relações desses componentes \cite{bass1998architecture}. Já para Garlan (\citeyear{garlan1995architecture}) se resume como a estrutura de todos componentes  daquele software, assim como suas relações e especificações que vão desde a concepção, desenvolvimento e evolução durante ao longo do ciclo de vida.
 
-Na figura, é apresentado a arquitetura básica de funcionamento do Noosfero. As próximas seções vão explicar algumas decisões que foram tomadas no desenvolvimento do mesmo.
+
+Fowler \citeyear{fowler2006padroes} em seu estudo, mostra que a definição do termo arquitetura em relação a software é bastante confusa e contraditória. Vários autores não concordam sobre uma definição especifica e definem de maneira errônea, então podem existir diversas outras definições na internet.
+
+Na figura \ref{fig:arquiteturanoosfero}, é apresentado a arquitetura básica de funcionamento do Noosfero. As próximas seções vão explicar algumas decisões que foram tomadas no desenvolvimento do mesmo.
 
 \graphicspath{{figuras/}}
-\begin{figure}[H]
+\begin{figure}[h]
 \centering
 \includegraphics[width=0.8\textwidth]{noosfero_architeture}
-\caption{Arquitetura de funcionamento do Noosfero. Extraído de DANIEL}
-\label{fig:arquiteturaror}
+\caption[Arquitetura de funcionamento do Noosfero]{Arquitetura de funcionamento do Noosfero. Extraído de \cite{bucher2013rede}}
+\label{fig:arquiteturanoosfero}
 \end{figure}
 
 \subsection{A Linguagem de Programação \textit{Ruby}}
@@ -41,9 +45,9 @@ Outra vantagem da linguagem \textit{Ruby} é o fato dela possuir gemas (\textit{
 \subsection{Extendendo o \textit{Ruby} para Aplicações Web Através do \textit{Framework Rails}}
 \label{sub:frameworkrails}
 
-O \textit{Rails} é um arcabouço de desenvolvimento web escrito na linguagem \textit{Ruby}, ele foi disponibilizado no ano de 2004 por David Heinemeier Hansson. O \textit{Rails}possui como uma das suas principais premissas facilitar o desenvolvimento de aplicativos, como visto em (Ruby on Rails: Up and Running by Bruce Tate , Curt Hibbs) o Rails é um dos arcabouços com maior produtividade, isto é, com o \textit{Rails} é possível criar uma aplicação completa com conexão com banco de dados em pouco tempo. 
+O \textit{Rails} é um arcabouço de desenvolvimento web escrito na linguagem \textit{Ruby}, ele foi disponibilizado no ano de 2004 por David Heinemeier Hansson. O \textit{Rails} possui como uma das suas principais premissas facilitar o desenvolvimento de aplicativos, pois sua concepção e arquitetura permitem ao programador uma produtividade maior, isto é, com o \textit{Rails} é possível criar uma aplicação completa com conexão com banco de dados em pouco tempo. 
 
-O \textit{Ruby on Rails} foi utilizado nas primeiras versões do \textit{Twitter},~\footnote{O Twitter em suas primeiras versões usava o \textit{Ruby on Rails}, no entanto por baixo desempenho migrou para Java. Maiores Informações em:\url{http://engineering.twitter.com/2011/04/twitter-search-is-now-3x-faster_1656.html} \label{ft:twitterjava}}, GitHub \footnote{Disponível em: \url{http://www.github.com}} e Scribd \footnote{Disponível em: \url{http://www.scribd.com}}. O \textit{Rails} utiliza vários princípios em sua arquitetura para orientar desenvolvimento do ``modo certo‘‘ ou ``Rails way‘‘, possibilitando o programador focar o seu desenvolvimento no problema do cliente, deixando a parte da estrutura da aplicação por conta do arcabouço. %VINICIM
+O \textit{Ruby on Rails} foi utilizado nas primeiras versões do \textit{Twitter}~\footnote{O Twitter em suas primeiras versões usava o \textit{Ruby on Rails}, no entanto por baixo desempenho migrou para Java. Maiores Informações em:\url{http://engineering.twitter.com/2011/04/twitter-search-is-now-3x-faster_1656.html} \label{ft:twitterjava}}, GitHub \footnote{Disponível em: \url{http://www.github.com}} e Scribd \footnote{Disponível em: \url{http://www.scribd.com}}. O \textit{Rails} utiliza vários princípios em sua arquitetura para orientar desenvolvimento do ``modo certo‘‘ ou ``Rails way‘‘, possibilitando o programador focar o seu desenvolvimento no problema do cliente, deixando a parte da estrutura da aplicação por conta do arcabouço. \cite{meneses2014mezuro}
 
 O arcabouço \textit{Ruby on Rails} influencia em maior produtividade graças a conceitos como:
 
@@ -61,7 +65,7 @@ Devido ao fato do Noosfero ter sido desenvolvido em cima do arcabouço \textit{R
 \begin{figure}[H]
 \centering
 \includegraphics[width=1.0\textwidth]{rails-overview}
-\caption{Arquitetura de funcionamento do \textit{Ruby On Rails}. Extraído de \cite{mejia2011rails}}
+\caption[Arquitetura de funcionamento do \textit{Ruby On Rails}]{Arquitetura de funcionamento do \textit{Ruby On Rails}. Extraído de \cite{mejia2011rails}}
 \label{fig:arquiteturaror}
 \end{figure}
 
@@ -84,31 +88,30 @@ Nessa figura \ref{fig:arquiteturaror}, são observado alguns componentes que faz
 \subsection{Arquitetura MVC}
 \label{sub:arquiteturamvc}
 
-O padrão arquitetural MVC (\textit{\textbf{M}odel \textbf{V}iew \textbf{C}ontroller})foi desenvolvido por Trygve Reenskaug nos anos 70. Como dito em Fowler(2005), o MVC tem exercido grande influência nos projetos de interface com o usuário, isso inclui o \textit{Ruby On Rails}.
+O padrão arquitetural MVC (\textit{\textbf{M}odel \textbf{V}iew \textbf{C}ontroller})foi desenvolvido por Trygve Reenskaug nos anos 70. Segundo Fowler (\citeyear{fowler2006padroes}), o MVC tem exercido grande influência nos projetos de interface com o usuário, isso inclui o \textit{Ruby On Rails}.
 
-O arcabouço para aplicações web \textit{Ruby On Rails} apoia a utilização  MVC, que sugere que o software deve ser dividido em componentes, separando em camadas de persistência, logica e interface. Isso torna o desenvolvimento do software muito mais organizado, claro e enxuto, facilitando a manutenção e evolução do sistema e com mantém a segurança do software em fases posteriores do seu desenvolvimento\cite{} (SILVA, 2012). Porém, o baixo acoplamento e alta coesão de um software, com módulos responsáveis só é garantido se houver uma organização do sistema em camadas, garantindo assim a escalabilidade, eficiência e a reusabilidade. Na figura \ref{fig:arquiteturamvc}, temos a arquitetura de funcionamento da arquitetura MVC.
+O arcabouço para aplicações web \textit{Ruby On Rails} apoia a utilização  MVC, que sugere que o software deve ser dividido em componentes, separando em camadas de persistência, logica e interface. Isso torna o desenvolvimento do software muito mais organizado, claro e enxuto, facilitando a manutenção e evolução do sistema e com mantém a segurança do software em fases posteriores do seu desenvolvimento \cite{silva2012mvc}. Porém, o baixo acoplamento e alta coesão de um software, com módulos responsáveis só é garantido se houver uma organização do sistema em camadas, garantindo assim a escalabilidade, eficiência e a reusabilidade. Na figura \ref{fig:figuramvc}, temos a arquitetura de funcionamento da arquitetura MVC.
 
 \graphicspath{{figuras/}}
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.6\textwidth]{funcionamentomvc}
-\caption[Funcionamento do \textit{Model View Controller}]{Funcionamento do \textit{Model View Controller}. Extraído de FOWLER}
-\label{fig:arquiteturamvc}
+\includegraphics[width=0.9\textwidth]{funcionamentomvc}
+\caption[Funcionamento do \textit{Model View Controller}]{Funcionamento do \textit{Model View Controller}. Extraído de (Rails Aplicacao nos trilhos)}
+\label{fig:figuramvc}
 \end{figure}
 
-Nessa visão em camadas, (i) o modelo (\textit{model}) possui informações sobre a regra de negócio, comportamentos e dados que não são utilizados na interface de usuário, (ii) a vista (\textit{view}) é composta pela saída que é vista pelo usuário do sistema, por exemplo, uma página HTML, (iii) o controlador (\textit{controller}) é responsável por receber as requisições (entradas) enviadas pelo cliente e decide qual o modelo que deve ser utilizado por aquela requisição e faz com que a vista seja renderizada para o usuário como reposta da requisição. Essa combinação entre vista e controladora é chamada de interface de usuário (Fowler 2005).
+Nessa visão em camadas, (i) o modelo (\textit{model}) possui informações sobre a regra de negócio, comportamentos e dados que não são utilizados na interface de usuário, (ii) a vista (\textit{view}) é composta pela saída que é vista pelo usuário do sistema, por exemplo, uma página HTML, (iii) o controlador (\textit{controller}) é responsável por receber as requisições (entradas) enviadas pelo cliente e decide qual o modelo que deve ser utilizado por aquela requisição e faz com que a vista seja renderizada para o usuário como reposta da requisição. Essa combinação entre vista e controladora é chamada de interface de usuário \cite{fowler2006padroes}. Já o (iv) roteador possui um mapeamento de todas as URLs das requisições, essas URLs são enviadas diretamente para a controladora responsável.
 
 No Noosfero a implementação do padrão arquitetural MVC é obedecida, pois o mesmo é inerentes ao arcabouço utilizado.
 
 \subsection{Plugins: Uma Arquitetura Extensível no Noosfero}
 \label{sub:arquiteturaplugin}
 %Arquitetura de plugins do Noosfero
-O Noosfero também utiliza uma arquitetura extensível através do uso de plugins. Essa arquitetura é interessante, pois como dito anteriormente, no Noosfero existem múltiplos ambientes que requerem comportamentos que tenham implementações diferentes %(FOWLER). 
+O Noosfero também utiliza uma arquitetura extensível através do uso de plugins. Essa arquitetura é interessante, pois como dito anteriormente, o Noosfero implementa a arquitetura de múltiplos ambientes presente no arcabouço \textit{Ruby On Rails}. Cada um desses ambientes possuem comportamentos que requerem implementações diferentes.
+ 
+Essa arquitetura encoraja a criação de um software modular, ou seja, a criação de módulos específicos para cada função diminuindo o acoplamento, aumentando a coesão e definindo bem as responsabilidades de cada módulo \cite{rozanski2005architecture}.  
 
-%%Software Systems Architecture, Addison Wesley  
-Essa arquitetura encoraja a criação de um software modular, ou seja, a criação de módulos específicos para cada função diminuindo o acoplamento, aumentando a coesão e definindo bem as responsabilidades de cada módulo.  
-
-Uma das grandes vantagens em se criar uma aplicação com arquitetura extensível através de plugins, é o fato de o desenvolvedor criarem novas funcionalidades sem ter acesso ao código fonte do software, apenas é necessário somente a API\footnote{Acrônimo \textbf{A}pplication \textbf{P}rogramming \textbf{I}nterface, que são padrões definidos por um software para utilização de seus recursos sem a necessidade de entrar na implementação do código fonte do software} que é fornecida pelo fabricante do software. Apesar disso no Noosfero os plugins são mantidos na linguagem \textit{Ruby}, através do arcabouço \textit{Ruby on Rails} e acoplados juntamente com o código principal (núcleo), dentro de uma pasta “plugins”, isso ajuda no controle de qualidade do código. Quando houver a necessidade de alterar o código do Noosfero, os testes dos plugins são executados para verificar se as mudanças não afetaram seu funcionamento~\footnote{Maiores informações em: \url{http://noosfero.org/Development/Plugins}}.
+Uma das grandes vantagens em se criar uma aplicação com arquitetura extensível através de plugins, é o fato de o desenvolvedor criarem novas funcionalidades sem ter acesso ao código fonte do software, apenas é necessário somente a API~\footnote{Acrônimo \textbf{A}pplication \textbf{P}rogramming \textbf{I}nterface, que são padrões definidos por um software para utilização de seus recursos sem a necessidade de entrar na implementação do código fonte do software} que é fornecida pelo fabricante do software. Apesar disso no Noosfero os plugins são mantidos na linguagem \textit{Ruby}, através do arcabouço \textit{Ruby on Rails} e acoplados juntamente com o código principal (núcleo), dentro de uma pasta “plugins”, isso ajuda no controle de qualidade do código. Quando houver a necessidade de alterar o código do Noosfero, os testes dos plugins são executados para verificar se as mudanças não afetaram seu funcionamento~\footnote{Maiores informações em: \url{http://noosfero.org/Development/Plugins}}.
 
 O funcionamento dos plugins é inspirado no paradigma de orientação a eventos, onde núcleo do Noosfero dispara um evento durante a execução de alguma função, e os plugins interessados nesse evento vão sobrescrever o método do core do Noosfero tratando o evento de acordo com sua implementação, funcionando como o padrão de projeto \textit{Composite}. Os eventos que são chamados pelo pelo Noosfero e implementados em outras partes são chamados de “hotspots”.
 
@@ -116,7 +119,7 @@ O funcionamento dos plugins é inspirado no paradigma de orientação a eventos,
 
 Uma das desvantagens do arcabouço Ruby on Rails está em lidar com grande números de usuários, um dos motivos é o péssimo suporte para aplicações \textit{multithread}~\footnote{Softwares que utilizam vários núcleos para processamento}, como foi visto no caso de estudo do Twitter~\footref{ft:twitterjava}. O Noosfero utiliza uma arquitetura lógica que tenta minimizar o processamento gasto com o carregamento de imagens, páginas, entre outros, através do sistema de Cache inteligente. Outra solução é a utilização de vários núcleos em seu servidor de aplicação, melhorando o tempo de requisição.
 
-Outro fator importante a ser ressaltado é que o Noosfero utiliza os pacotes homologados pelos desenvolvedores do Debian na versão \textit{stable} (estável). Essa medida trás impactos positivos em relação a segurança do software , já que as correções de vulnerabilidades são feitas diretamente nos pacotes disponibilizados pelos desenvolvedores do sistema operacional, que geralmente são mais rápidos. Abaixo são listados alguns componentes da arquitetura lógica do Noosfero. %DANIEL
+Outro fator importante a ser ressaltado é que o Noosfero utiliza os pacotes homologados pelos desenvolvedores do Debian na versão \textit{stable} (estável). Essa medida trás impactos positivos em relação a segurança do software, já que as correções de vulnerabilidades são feitas diretamente nos pacotes disponibilizados pelos desenvolvedores do sistema operacional, que geralmente são mais rápidos. Abaixo são listados alguns componentes da arquitetura lógica do Noosfero.
 
 \subsubsection*{Varnish}
 
@@ -150,37 +153,48 @@ Como o Noosfero foi desenvolvido em 2007, o esquema de funcionamento de classes 
 \graphicspath{{figuras/}}
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.6\textwidth]{funcionamentomvc}
-	\caption[Relacionamentos entre perfis, ambientes e domínios]{Relacionamentos entre perfis, ambientes e domínios. Extraído de DANIEL}
+	\includegraphics[width=0.8\textwidth]{dominio-ambiente}
+	\caption[Relacionamentos entre perfis, ambientes e domínios]{Relacionamentos entre perfis, ambientes e domínios. Extraído de \cite{bucher2013rede}}
 	\label{fig:relperfisambientes}
 \end{figure}
 
-Como visto na seção \ref{sub:arquiteturamvc}, o Ruby on Rails possui suporte para múltiplos ambientes dentro de uma única instalação, ou seja, é possível ter um ou mais ambientes de rede social utilizando uma única instalação do Noosfero, basta que ele tenha um domínio (\textit{Domain}} diferente. No Noosfero, existe uma entidade chamada Perfil (Profile), essa entidade é uma abstração de outras três outras entidades: Pessoas (\textit{Person}), Comunidade (\textit{Community}) e Empreendimento (\textit{Enterprise}), como é visto na figura \ref{fig:reltipoperfil}. A abstração consiste isolar elementos em comum dentro de uma classe pai, enquanto as especialidades são responsabilidade das classes filhas.
+Como visto na seção~\ref{sub:arquiteturamvc}, o Ruby on Rails possui suporte para múltiplos ambientes dentro de uma única instalação, ou seja, é possível ter um ou mais ambientes de rede social utilizando uma única instalação do Noosfero, basta que o ambiente criado tenha um domínio (\textit{Domain}) diferente do primeiro ambiente. No Noosfero, existe uma entidade chamada Perfil (Profile), essa entidade é uma abstração de outras três outras entidades: Pessoas (\textit{Person}), Comunidade (\textit{Community}) e Empreendimento (\textit{Enterprise}), como é visto na figura \ref{fig:reltipoperfil}. A abstração consiste isolar elementos em comum dentro de uma classe pai, enquanto as especialidades são responsabilidade das classes filhas.
 
 \graphicspath{{figuras/}}
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.6\textwidth]{funcionamentomvc}
-	\caption[Relacionamento entre os tipos de perfis]{Relacionamento entre os tipos de perfis. Extraído de FOWLER}
+	\includegraphics[width=0.8\textwidth]{dominio-profile}
+	\caption[Relacionamento entre os tipos de perfis]{Relacionamento entre os tipos de perfis. Extraído de \cite{bucher2013rede}}
 	\label{fig:reltipoperfil}
 \end{figure}
 
 \graphicspath{{figuras/}}
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.6\textwidth]{funcionamentomvc}
-	\caption[Relacionamento entre os tipos de conteúdo do Noosfero]{Relacionamento entre os tipos de conteúdo do Noosfero. Extraído de Daniel}
+	\includegraphics[width=0.9\textwidth]{dominio-artigo}
+	\caption[Relacionamento entre os tipos de conteúdo do Noosfero]{Relacionamento entre os tipos de conteúdo do Noosfero. Extraído de \cite{bucher2013rede}}
 	\label{fig:tipoconteudo}
 \end{figure}
 
-Ainda na figura \ref{fig:reltipoperfil} é encontrada outra abstração no código do Noosfero acontece na classe chamada de organização, que possui o comportamento comum entre comunidades (\textit{community}) e (\textit{enterprise}), visto na figura. A classe usuário (\textit{user}) possui todas as lógicas e implementações relativas a autenticação do usuários, enquanto a classe Person possui lógicas relacionadas a rede social (amigos, manutenção de perfil, etc.), tornando o código mais fácil de ser entendido. Na figura \ref{fig:tipoconteudo} é representado os tipos de conteúdo disponíveis no Noosfero como artigos de texto, fóruns, pastas, artigo usando HTML, blogs de conteúdo, galerias de imagens, arquivos em geral e feeds de notícias. É importante ressaltar que alguns conteúdos que foram implementados no Participa.br, como é o caso do hub ou trilhas de participação fazem parte de plugins especificos, que estendem os tipos de conteúdo disponíveis.
+Ainda na figura \ref{fig:reltipoperfil} é encontrada outra abstração no código do Noosfero acontece na classe chamada de organização, que possui o comportamento comum entre comunidades (\textit{community}) e (\textit{enterprise}), visto na figura. A classe usuário (\textit{user}) possui todas as lógicas e implementações relativas a autenticação do usuários, enquanto a classe Person possui lógicas relacionadas a rede social (amigos, manutenção de perfil, etc.), tornando o código mais fácil de ser entendido. Na figura \ref{fig:tipoconteudo} é representado os tipos de conteúdo disponíveis no Noosfero como artigos de texto, fóruns, pastas, artigo usando HTML, blogs de conteúdo, galerias de imagens, arquivos em geral e feeds de notícias. É importante ressaltar que alguns conteúdos que foram implementados no Participa.br, como é o caso do Hub ou trilhas de participação fazem parte de plugins especificos, que estendem os tipos de conteúdo disponíveis.
 
-\section{Testes: Mantendo a Qualidade do Código do Noosfero}
-\label{sub:noosferotestes}
+\section{Desenvolvendo para o Noosfero}
 
-Como visto anteriormente na figura \ref{fig:arquiteturaror}, o \textit{Ruby on Rails} fornece um m
+Qualquer pessoa pode ajudar o desenvolvimento do Noosfero/Participa.br, pois como foi visto na seção~\ref{sub:softwarelivre} se trata de um Software Livre. O Noosfero disponibiliza uma lista de novas funcionalidades e bugs a serem corrigidos (\textit{Issue Tracker})~\footnote{Informações em: \url{http://noosfero.org/Development/FeatureItem}}, o qual ajuda novos desenvolvedores sobre quais funcionalidades devem ser desenvolvidas. Essa lista é ilustrado pela figura \ref{fig:issuetracker}.
 
-Pensando nisso os plugins devem ter testes automatizados. 
+A Coolivre assim como a comunidade do \textit{Rails}, recomendam que o desenvolvimento do código utilize a técnica de TDD~\footnote{Test Driven Development. Disponível em: \url{http://pt.wikipedia.org/wiki/Test_Driven_Development}}, já que trás um código mais simples, melhor entendível e inspira confiança \cite{beck2003tdd}.
+
+\graphicspath{{figuras/}}
+\begin{figure}[h]
+\centering
+\includegraphics[width=1.0\textwidth]{issue-tracker}
+\caption{\textit{Issue tracker} do Noosfero.}
+\label{fig:issuetracker}
+\end{figure}
+
+Após o desenvolvimento da funcionalidade para o código ser incorporado no Noosfero é necessário que o mesmo seja totalmente testado, fato esse garante que a qualidade do código se mantenha a mesma. O Noosfero utiliza testes unitários~\textbf{Teste responsável por testar pequenas porções do software desenvolvidas em busca da garantia que o todo está funcionando} e testes funcionais~\footnote{Testa se o comportamento do software de acordo com os requisitos planejados, colocando entradas aleatórias e esperando saídas planejadas de acordo com o software} utilizando as ferramentas fornecidas pelo arcabouço \textit{Ruby on Rails}, discutido na seção~\ref{sub:frameworkrails}. Também há testes de aceitação utilizando BDD~\footnote{Behavior Driven Development. Disponível em: \url{http://pt.wikipedia.org/wiki/Behavior_Driven_Development}} através da ferramenta cumcuber, que permite a escrita de testes em linguagem natural.
+
+
 
 
 

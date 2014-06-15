@@ -1,22 +1,29 @@
 \chapter{Biblioteca Digital do Participa.br}
+\label{cap:bibparticipabr}
 
-Atualmente não existe um lugar centralizado para os usuários buscarem informações sobre os mecanimos formais de participação. Cada órgão possui seu próprio repositório de informações, disponibilizados em diversas formatos digitais, sendo elas: planilhas, documentos, páginas HTML, entre outros. Muito desses orgãos disponibilizam informações desatualizadas e incompletas, outros já disponibilizam os dados de formas estruturadas e completas como no caso do Conselho Nacional de Saúde. Com isso se faz necessário a criação de um canal principal para disponibilização sobre os mecanismos formais de participação.
+Nesse capítulo será apresentado alguns resultados dos levantamentos iniciais sobre os mecanismos formais de participação, além de apresentar um primeiro protótipo sobre a biblioteca digital do Participa.br. Para esse primeiro protótipo, os metadados considerados serão apresentados na seção \ref{sub:metadadospbr}. Mais adiante uma proposta para interoperabilidade do Participa.br (Noosfero) e a biblioteca digital através de um plugin que implementa o protocolo OAI-PMH é visto na seção \ref{sec:interparticipa}. Já o primeiro protótipo da biblioteca digital de participação social é visto na seção \ref{sub:prototipo_biblioteca}.
 
-A ampliação e o aumento no número de conselhos também são significativos na última década, configurando um mecanismo de participação referendado pela Constituição Federal.\cite{solagna2014metodologias}. Isso faz com que
+Também constam recomendações e sugestões sobre preservação de artefatos digitais visando uma sobrevida maior, e beneficiando não somente documentos textuais, mas todo e qualquer tipo de informação multimídia (áudio, vídeo, imagem, etc.).
 
-Foi feito um primeiro levantemento sobre os principais mecanismos formais de participação,
+\section{Arquitetura da informação sobre participação social}
 
-Durante essa fase de levantamente aliado com esse crescente aumento no número de mecanismos formais de participação durante as últimas décadas, ficou evidente que encontrar informações sobre esses mecanismos se torna dispendioso. Por isso é necessário criar um canal onde os usuários possam acessar todos os dados de maneira centralizada, e que as informações sobre os mecanismos formais possam estar sempre atualizadas, tudo isso dentro do Participa.br.
+Atualmente não existe um lugar centralizado para os usuários buscarem informações sobre os mecanismos formais de participação. Cada órgão possui seu próprio repositório de informações, disponibilizados em diversas formatos digitais, sendo elas: planilhas, documentos, páginas HTML, entre outros. Muito desses órgãos disponibilizam informações desatualizadas e incompletas, outros já disponibilizam os dados de formas estruturadas e completas como no caso do Conselho Nacional de Saúde. 
 
-Na figura X é apresentado uma arquitetura de funcionamento da biblioteca digital do Participa. Nessa arquitetura, os mecanismos formais de participação funcionam como provedores de conteúdo, isto é, cada mecanismo seja ele conselho, conferência ou ouvidoria é responsável por alimentar suas próprias informações na ferramenta de biblioteca digital. Na segunda etapa Participa.br utilizando o protocolo OAI-PMH, 
- 
-\section{Metadados de Participação Social}
+Aliado ao crescente número de mecanismos formais de participação durante a última década, ficou evidente que encontrar informações sobre esses mecanismos se torna dispendioso. Por isso é necessário criar um canal onde os usuários possam acessar todos os dados de maneira centralizada, e que as informações sobre os mecanismos formais possam estar sempre atualizadas, tudo isso dentro do Participa.br.
 
-Durante a fase de levantamento dos principais mecanismos de participação social, também foi incluído a identificação de quais seriam dados os relevantes a serem incluídos na biblioteca digital do Participa.br.
+Para criação desse canal centralizado para disponibilização dos mecanismos formais de participação foi feito um primeiro levantamento. Esse levantamento levou em consideração as informações disponibilizadas nos diversos portais dos canais de participação (mais especificamente sobre conselhos, conferências e ouvidorias) e nas entrevistas que foram realizadas durante o período de confecção da primeira versão desta monografia.
 
-Além desse levantamento nos principais sites, alguns gestores da Secretaria Geral da Presidência da Repúblca foram consultados para que opinassem sobre qual tipos de informações eles gostariam de ver na biblioteca digital. 
+Após esse levantamento inicial, foi notado que os sites são muito heterogêneos e que a estrutura assumida por cada canal é peculiar àquele site. De um modo geral, as informações de participação social incorporam páginas web e arquivos textos com a maior parte das informações. Além dessa forma, muitos sites contém arquivos multimídia contendo áudio, vídeo e imagens como documentários sobre as reuniões dos conselhos, palestras, entre outros, que podem ser colocados para visualização dos usuários.
 
-O resultado desse levantamento, permitiu a conexão dos metadados com os mecanismos formais de participação, entre eles, conselhos, conferências e ouvidorias, considerados os principais canais de participação.
+É importante ressaltar que, num primeiro momento, para apresentação do protótipo, foram considerados apenas alguns objetos digitais construídos especialmente para essa biblioteca digital cujos conteúdos são exatamente as informações essenciais do canal de informação, tais como o URL, os dados do gestor e outras informações relevantes. Portanto, esse foi o nível de granularidade definido para o objeto digital nesse primeiro protótipo de biblioteca digital.
+
+
+\section{Metadados de participação social}
+\label{sub:metadadospbr}
+
+A fim de atender ao propósito dessa pesquisa, foi feito um levantamento nos principais mecanismos formais de participação, a fim de identificar quais seriam os metadados relevantes a serem incluídos na biblioteca digital do Participa.br. Além desse levantamento em sites, alguns gestores foram consultados para que opinassem sobre que tipo de informações eles gostariam de ver respondidas com a biblioteca digital. O resultado desse levantamento permitiu elencar os metadados que estão apresentados nas Tabelas \ref{tab:metadata_dc_conselho} a \ref{tab:metadata_pbr_ouvidorias} para conselhos, conferências e ouvidorias, considerados os principais canais de participação para efeito de teste da biblioteca digital que está sendo proposta.
+
+Na tabela abaixo serão apresentados os metadados significativos para conselhos, conferências e ouvidorias que tem uma correlação com metadados do padrão Dublin Core.
 
 \begin{table}[H]
 	\begin{center}
@@ -24,22 +31,22 @@ O resultado desse levantamento, permitiu a conexão dos metadados com os mecanis
     \hline
     \textbf{Metadado} & \textbf{DC} & \textbf{Descrição}  \\ \hline
     Nome & dc.title & Nome do Conselho \\ \hline
-    Órgão vinculado & dc.creator & Órgão o qual aquele conselho faz parte. \\ \hline
-    Assuntos relacionados & dc.subject & Tags. \\ \hline
-    Descrição & dc.description & Uma pequena descrição, finalidade ou objeto o qual o conselho está ligado.\\ \hline
+    Órgão vinculado & dc.creator & Órgão o qual aquele canal formal faz parte. \\ \hline
+    Assuntos relacionados & dc.subject & Palavras chaves que relacionam ao canal formal. \\ \hline
+    Descrição & dc.description & Uma pequena descrição, finalidade ou objeto o qual aquele canal formal está ligado.\\ \hline
     Date & dc.date & Data de criação do canal de participação. \\ \hline
-    Tipo & dc.type & Tipo de caráter que o conselho possui (representativa, consultiva, deliberativa, participativa, etc.). \\ \hline
-    Site & dc.identifier & URL/URI do canal de participação. Sítio Eletrônico onde se encontra a página do conselho. \\ \hline
+    Tipo & dc.type & Tipo de caráter que o canal de participação possui (representativa, consultiva, deliberativa, participativa, etc.). \\ \hline
+    Site & dc.identifier & URL/URI do canal de participação. Sítio Eletrônico onde se encontra a página do canal formal de participação. \\ \hline
     Linguagem & dc.language & Linguagem utilizada descrição do canal formal de participação (previsão para outras linguagens no futura.) \\ \hline
     Canais Semelhantes & dc.relation & Define ligação entre canais formais. \\ \hline
-    Licença de utilização & dc.rights & Tipo de licença para divulgação daquele canal. \\ \hline
+    Licença de utilização & dc.rights & Tipo de licença para divulgação do conteúdo daquele canal. \\ \hline
     \end{tabular}
     \end{center}
-    \caption{Metadados Participa para conselhos}
-    \label{tab:metadata_participa}
+    \caption{Metadados Participa com Relação DC para Conselhos, Conferências e Ouvidorias}
+    \label{tab:metadata_dc_conselho}
 \end{table}
 
-Na tabela \ref{tab:metadata_participa} estão os metadados definidos que não possuem qualquer relação com o Dublin Core. Ou seja, são metadados locais que não serão interoperáveis fora do contexto dos canais de participação social que estiverem conectados à rede de bibliotecas digitais planejada para o Participa (essa discussão será feita mais adiante na seção \ref{cap:extbibparticipa}).
+Na tabela \ref{tab:metadata_pbr_conselho} estão os metadados definidos que não possuem qualquer relação com o Dublin Core. Ou seja, são metadados locais que não serão interoperáveis fora do contexto dos canais de participação social que estiverem conectados à rede de bibliotecas digitais planejada para o Participa (essa discussão será feita mais adiante na seção \ref{cap:extbibparticipa}).
 
 \begin{table}[H]
 \begin{center}
@@ -52,17 +59,17 @@ Na tabela \ref{tab:metadata_participa} estão os metadados definidos que não po
     pbr.escolha & Forma de escolha dos membros (Por exemplo: votação, indicação, etc.). \\ \hline
     pbr.mandato & Nome das pessoas que estão fazendo parte do conselho em um determinado tempo. \\ \hline
     pbr.legislacao & Todas as leis (Leis, decretos, portarias, etc.) que estão relacionados aquele conselho. \\ \hline
-    pbr.endereco & Esse metadado possui informações sobre o endereço físico a qual aquele conselho está instalado (Bairro, Cidade, CEP, Rua, etc.) e também possui informações sobre telefone e e-mail do conselho. \\ \hline
+    pbr.endereco & Esse metadado possui informações sobre o endereço físico a qual aquele conselho está instalado (Bairro, Cidade, CEP, Rua, etc.) e também inclui informações sobre telefone e e-mail do conselho. \\ \hline
     pbr.dtreuniao & Data de reuniões, audiências, etc. \\ \hline
     \end{tabular}
     \caption{Metadados Participa para conselhos}
-    \label{tab:metadata_pbr_conselhos}
+    \label{tab:metadata_pbr_conselho}
 \end{center}
 \end{table}
 
 %Tabela 3.2 - Metadados Participa para conselhos
 
-Na tabela \ref{tab:metadata_pbr_conselhos} estão apresentados os metadados significativos para conselhos e que tem uma corelação com metadados do padrão Dublin Core.
+Na tabela \ref{tab:metadata_pbr_conferencias} estão apresentados os metadados significativos para conselhos e que tem uma corelação com metadados do padrão Dublin Core.
 
 \begin{table}[H]
 \begin{center}
@@ -70,13 +77,12 @@ Na tabela \ref{tab:metadata_pbr_conselhos} estão apresentados os metadados sign
     \hline
     \textbf{Metadado} & \textbf{Descrição} \\ \hline
     pbr.sigla & Sigla do mecanismo formal de participação \\ \hline
-    pbr.competencia & Competências e atribuições a qual o conselho responde, geralmente regidas em lei. \\ \hline
-    pbr.composicao & Composição entre os membros de um conselho, também geralmente são regidas em lei (Por exemplo: membros da sociedade civil, membros da esfera pública). \\ \hline
-    pbr.escolha & Forma de escolha dos membros (Por exemplo: votação, indicação, etc.). \\ \hline
-    pbr.mandato & Nome das pessoas que estão fazendo parte do conselho em um determinado tempo. \\ \hline
-    pbr.legislacao & Todas as leis (Leis, decretos, portarias, etc.) que estão relacionados aquele conselho. \\ \hline
-    pbr.endereco & Esse metadado possui informações sobre o endereço físico a qual aquele conselho está instalado (Bairro, Cidade, CEP, Rua, etc.) e também possui informações sobre telefone e e-mail do conselho. \\ \hline
-    pbr.dtreuniao & Data de reuniões, audiências, etc. \\ \hline
+    pbr.competencia & Competências e atribuições a qual o conferência responde, geralmente regidas em lei. \\ \hline
+    pbr.tema & Tema central daquela conferência. \\ \hline
+    pbr.composicao & É composto pelos membros que fizeram parte da edição daquela conferência. \\ \hline
+    pbr.legislacao & Todas as leis (Leis, decretos, portarias, etc.) que estão relacionados aquela conferência. \\ \hline
+    pbr.endereco & Esse metadado possui informações sobre o endereço físico a qual aquele conselho está instalado (Bairro, Cidade, CEP, Rua, etc.) incluso informações sobre telefone e e-mail do conselho. \\ \hline
+    pbr.dtreuniao & Possui a data de reuniões, audiências, etc. \\ \hline
     \end{tabular}
     \caption{Metadados Participa para conferências}
     \label{tab:metadata_pbr_conferencias}
@@ -85,7 +91,7 @@ Na tabela \ref{tab:metadata_pbr_conselhos} estão apresentados os metadados sign
 
 % Tabela 3.3 - Metadados sobre conferências
 
-Essa tabela \ref{tab:metadata_pbr_conferencias} contém metadados locais para controle de informações sobre conferências. Percebe-se que, salvo algumas exceções, o nome do metadado e o seu significado é compatível com o que foi exposto para os conselhos.
+Na tabela \ref{tab:metadata_pbr_ouvidorias} contém metadados locais para catalogação de informações sobre ouvidorias. Assim como nas conselhos e conferências, alguns significados são compatíveis.
 
 % Tabela 3.4 - Metadados Participa para conferências
 \begin{table}[H]
@@ -94,21 +100,15 @@ Essa tabela \ref{tab:metadata_pbr_conferencias} contém metadados locais para co
     \hline
     \textbf{Metadado} & \textbf{Descrição} \\ \hline
     pbr.sigla & Sigla do mecanismo formal de participação \\ \hline
-    pbr.competencia & Competências e atribuições a qual o conselho responde, geralmente regidas em lei. \\ \hline
-    pbr.composicao & Composição entre os membros de um conselho, também geralmente são regidas em lei (Por exemplo: membros da sociedade civil, membros da esfera pública). \\ \hline
-    pbr.escolha & Forma de escolha dos membros (Por exemplo: votação, indicação, etc.). \\ \hline
-    pbr.mandato & Nome das pessoas que estão fazendo parte do conselho em um determinado tempo. \\ \hline
-    pbr.legislacao & Todas as leis (Leis, decretos, portarias, etc.) que estão relacionados aquele conselho. \\ \hline
-    pbr.endereco & Esse metadado possui informações sobre o endereço físico a qual aquele conselho está instalado (Bairro, Cidade, CEP, Rua, etc.) e também possui informações sobre telefone e e-mail do conselho. \\ \hline
-    pbr.dtreuniao & Data de reuniões, audiências, etc. \\ \hline
+    pbr.competencia & Competências e atribuições a qual a ouvidoria responde, geralmente regidas em lei. \\ \hline
+    pbr.responsaveis & Nome das pessoas responsáveis pela ouvidoria. \\ \hline
+    pbr.legislacao & Todas as leis (Leis, decretos, portarias, etc.) que estão relacionados com aquela ouvidoria. \\ \hline
+    pbr.endereco & Informações sobre o endereço físico a qual aquele conselho está instalado (Bairro, Cidade, CEP, Rua, etc.) incluso outras informações, como telefone e e-mail do conselho. \\ \hline
     \end{tabular}
     \caption{Metadados Participa para Ouvidorias}
     \label{tab:metadata_pbr_ouvidorias}
 \end{center}
 \end{table}
-
-
-Na tabela \ref{tab:metadata_pbr_ouvidorias} contém metadados locais para catalogação de informações sobre ouvidorias. Assim como nas conselhos e conferências, alguns significados são compatíveis.
 
 % Tabela 3.5 - Metadados Participa para ouvidorias
 
@@ -125,46 +125,45 @@ Em versões futuras dessa biblioteca digital serão tratados objetos multimídia
 
 Os dados dos canais formais serão apresentados em níveis para facilitar o acesso às informações. No primeiro nível sugere-se a apresentação dos metadados essenciais, como o índice geral, o link para tela principal do canal de participação e outras informações essenciais como o nome e a eventual sigla do canal. No segundo nível será aberto um detalhamento maior contendo as informações essenciais que foram recuperadas das páginas de rosto de cada canal. Nesse caso, aparecem informações sobre a legislação essencial, sobre os coordenadores e seus dados de acesso (telefone, endereço, etc). Será dada ainda a opção de apresentação de um terceiro nível, onde for necessário, com a informação completa do site recuperada e inserida dentro da biblioteca digital. Dessa forma, o usuário pode realizar consultas de formas variadas e poderá inclusive chegar na página web do canal sem precisar passar pelos passos anteriores.
 
-\subsection{Interoperabilidade entre o Participa e canais de participação social}
+\section{Interoperabilidade entre o Participa e canais de participação social}
+\label{sec:interparticipa}
 
 Como prova de conceito, num primeiro momento foi elaborado um protótipo de biblioteca digital na versão centralizada com uso de software livre, mais especificamente de algum dos softwares levantados e listados no Anexo \ref{Att:anexobibliotecas} deste documento (maiores detalhes sobre essa construção estão descritas na seção \ref{sub:prototipo_biblioteca}). No entanto, em função da dinâmica de modificação das informações de participação social, é importante assumir a estratégia de se criar um modelo de interação entre os canais de participação social e o portal Participa.br, considerando os primeiros como provedores de dados e o portal como um provedor de serviços, como está representado na figura \ref{fig:modeloaipmh}.
 
 \graphicspath{{figuras/}}
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.6\textwidth]{modelo-oaipmh}
-\caption{Modelo de comunicação OAI-PMH entre o portal e os canais de participação. Extraído de \cite{renan2009interoperabilidade}}
+\includegraphics[width=0.9\textwidth]{modelo-oaipmh}
+\caption[Modelo de comunicação OAI-PMH entre o portal e os mecanismos]{Modelo de comunicação OAI-PMH entre o portal e os canais de participação. Extraído de \cite{renan2009interoperabilidade}}
 \label{fig:modeloaipmh}
 \end{figure}
 
-%MELHORAR
-%Figura 3.4: Modelo de comunicação OAI-PMH entre o portal e os canais de participação
-%Fonte: Adaptado a partir de http://wiki.cetis.ac.uk/Image:OAI-PMH_overview.png#file
+Nessa figura, os canais de participação conteriam em seus portais, um módulo de biblioteca digital que seria elaborado como produto dessa monografia e distribuído para eles via promoções feitas pelos gestores responsáveis pelo acompanhamento dos canais formais, por exemplo. Com esse módulo acoplado, os canais de participação passam a ter um site pré-configurado e pronto para comportar informações relevantes de uso interno e externo, pelo preenchimento de metadados ou informações tais como telefones de contato, nomes dos conselheiros, reuniões, atas de reuniões e outras informações em formatos variados que possam e necessitem ser catalogadas localmente.
 
-Nessa figura, os canais de participação conteriam em seus portais, um módulo de biblioteca digital que seria elaborado como produto dessa consultoria e distribuído para eles via promoções feitas pelos gestores responsáveis pelo acompanhamento dos canais formais, por exemplo. Com esse módulo acoplado, os canais de participação passam a ter um site pré-configurado e pronto para comportar informações relevantes de uso interno e externo, pelo preenchimento de metadados ou informações tais como telefones de contato, nomes dos conselheiros, reuniões, atas de reuniões e outras informações em formatos variados que possam e necessitem ser catalogadas localmente.
-
-Por outro lado, o portal Participa terá acoplado a si um módulo da biblioteca digital que o tornará um provedor de serviços capaz de interagir com os provedores de serviço e coletar metadados essenciais sobre cada um desses provedores de dados, por meio do protocolo de harvesting OAI-PMH. Dessa forma, o Participa poderá auxiliar os canais de participação na organização de seus conteúdos de informação e, ao mesmo tempo, poderá ser um provedor de informações atualizadas sobre os diversos canais de participação, uma vez que as colheitas de dados nos provedores podem ser feitas em qualquer instante desejado. Vale lembrar que o OAI-PMH foi preferido em relação aos outros padrões, como é o caso do Z39.50, porque permite escalabilidade e uma maior liberdade de troca de informações e uma interoperabilidade com baixo grau de envolvimento entre as partes, preservando, dessa forma, a autonomia de cada um dos canais de participação. No caso do OAI-PMH, este padrão foi escolhido já como parte do segundo produto dessa consultoria. 
+Por outro lado, o portal Participa terá acoplado a si um módulo da biblioteca digital que o tornará um provedor de serviços capaz de interagir com os provedores de serviço e coletar metadados essenciais sobre cada um desses provedores de dados, por meio do protocolo de harvesting OAI-PMH. Dessa forma, o Participa poderá auxiliar os canais de participação na organização de seus conteúdos de informação e, ao mesmo tempo, poderá ser um provedor de informações atualizadas sobre os diversos canais de participação, uma vez que as colheitas de dados nos provedores podem ser feitas em qualquer instante desejado. Vale lembrar que o OAI-PMH foi preferido em relação aos outros padrões, como é o caso do Z39.50, porque permite escalabilidade e uma maior liberdade de troca de informações e uma interoperabilidade com baixo grau de envolvimento entre as partes, preservando, dessa forma, a autonomia de cada um dos canais de participação. No caso do OAI-PMH, este padrão foi escolhido já como padrão a ser utilizado para implementação. 
 
 No entanto, para viabilizar essa solução, é importante que, após definida a interface da biblioteca digital, haja uma campanha de distribuição dessas bibliotecas entre os canais de participação interessados, preferencialmente criando-se elementos de motivação que incentivem a adoção máxima desse ambiente de organização de conteúdos e interoperabilidade.
 
-\subsection{Proposta de interface para a biblioteca digital}
+\section{Proposta de interface para a biblioteca digital}
 \label{sub:prototipo_biblioteca}
 
 Tomando como referência os levantamentos de software descritos no Anexo \ref{Att:anexobibliotecas} deste documento e nos softwares apresentados na sub-seção seguinte, foi elaborada uma ideia inicial sobre uma biblioteca digital de participação social na intenção de prover, numa estrutura única, os requisitos de sistematização e catalogação colocados na descrição desse produto.
  
 Dentre os softwares testados (vide Anexo \ref{Att:anexobibliotecas} deste documento), houve dúvidas entre se utilizar o Greenstone ou o Omeka como infra-estrutura básica para construção da biblioteca digital de participação social e do protótipo que seria apresentado nesse documento. Por esse motivo, foram feitas customizações nesses dois ambientes a fim de identificar elementos que pudessem balizar a escolha, tais como facilidade de uso, características relevantes para o contexto da biblioteca, dentre outros.
 
-No protótipo de biblioteca digital foram inseridas todas as informações consideradas relevantes e de acordo com as definições que foram listadas nesse Capítulo. No Anexo \ref{Att:catalogomecanismos} foram colocados apenas alguns exemplos de canais de participação para que se possa ter uma ideia do material disponível. A eficiência de localização e busca de dados sobre participação pode ser experimentada com uso deste protótipo de biblioteca digital criado. 
+As funcionalidades do Greenstone, do Omeka e dos demais softwares testados estão melhor descritas no Anexo~\ref{Att:anexobibliotecas} deste documento. Além disso, outros softwares de bibliotecas digitais foram investigados e estão listados nesse mesmo Anexo.
 
-\subsubsection{Protótipo das telas}
+No protótipo de biblioteca digital foram inseridas todas as informações consideradas relevantes e de acordo com as definições que foram listadas no Capítulo \ref{cap:bibinterop}. No Anexo \ref{Att:catalogomecanismos} foram colocados apenas alguns exemplos de canais de participação para que se possa ter uma ideia do material disponível. A eficiência de localização e busca de dados sobre participação pode ser experimentada com uso deste protótipo de biblioteca digital criado. 
 
-Para o protótipo apresentado aqui, o Omeka foi escolhido por ser bastante simples em questões de configuração e customização, pois utiliza tecnologias recentes como CSS3 e HTML5 em várias partes de seus temas. No entanto, na versão final pretende-se avaliar outros ambientes para garantir a melhor escolha para o produto de catalogação que será entregue como um dos resultados dessa consultoria. 
+\subsection*{Protótipo das telas}
 
-\subsubsection{Informações gerais}
+Para o protótipo apresentado aqui, o Omeka foi escolhido por ser bastante simples em questões de configuração e customização, pois utiliza tecnologias recentes como CSS3 e HTML5 em várias partes de seus temas. No entanto, na versão final desse trabalho pretende-se avaliar outros ambientes para garantir a melhor escolha para o produto de catalogação. 
 
-Foi definido um cabeçalho de acordo com \cite{emag2013usabilidade}, que é uma série de passos e recomendações para que os portais brasileiros sejam implementados de forma padronizada, de fácil implementação, coerente com as necessidades brasileiras e em conformidade com os padrões internacionais. A primeira versão do e-MAG foi disponibilizada para consulta pública em 18 de janeiro de 2005 e a versão 2.0 já com as alterações propostas, em 14 de dezembro do mesmo ano. Atualmente, o e-MAG encontra-se na versão 3.1 (última versão em dezembro de 2013). 
+\subsection*{Informações gerais}
 
-De acordo com \cite{emag2013usabilidade} foi formulado um cabeçalho, a imagem ilustrada na figura \ref{fig:cab_prototipo} mostra o mesmo.
+Foi definido um cabeçalho de acordo com e-MAG (\citeyear{emag2013usabilidade}), que é uma série de passos e recomendações para que os portais brasileiros sejam implementados de forma padronizada, de fácil implementação, coerente com as necessidades brasileiras e em conformidade com os padrões internacionais. A primeira versão do e-MAG foi disponibilizada para consulta pública em 18 de janeiro de 2005 e a versão 2.0 já com as alterações propostas, em 14 de dezembro do mesmo ano. Atualmente, o e-MAG encontra-se na versão 3.1 (última versão em dezembro de 2013). 
+
+Ainda de acordo com e-MAG (\citeyear{emag2013usabilidade}) foi formulado um cabeçalho, a imagem ilustrada na figura \ref{fig:cab_prototipo} mostra o mesmo.
 
 %Imagem Cabeçalho
 \graphicspath{{figuras/prototipo/}}
@@ -177,7 +176,7 @@ De acordo com \cite{emag2013usabilidade} foi formulado um cabeçalho, a imagem i
 
 No menu existem várias opções de acessibilidade, que ajudam os usuários portadores de necessidades acessar de forma mais facilitada a biblioteca de mecanismos formais de participação.
 
-Para rodapé apresentado na figura \ref{:rodape_prototipo} foi utilizado o padrão que há no portal Participa.br, visto que a idéia é fazer que o usuário não perceba que ele está utilizando outro software. Como complemento do rodapé, existe uma referência para o site oficial do Brasil, outra referência para o site Secretaria Geral da Presidência da República, além da referência ao software utilizado (Omeka) e a licença que está sendo utilizada.
+Para rodapé apresentado na figura \ref{fig:rodape_prototipo} foi utilizado o padrão que há no portal Participa.br, visto que a idéia é fazer que o usuário não perceba que ele está utilizando outro software. Como complemento do rodapé, existe uma referência para o site oficial do Brasil, outra referência para o site Secretaria Geral da Presidência da República, além da referência ao software utilizado (Omeka) e a licença que está sendo utilizada.
 
 %Imagem Rodapé
 \graphicspath{{figuras/prototipo/}}
@@ -194,14 +193,14 @@ A figura \ref{fig:vertical_prototipo}, possui um menu vertical onde os usuários
 \graphicspath{{figuras/prototipo/}}
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.8\textwidth]{barra-superior}
+\includegraphics[width=1.0\textwidth]{barra-superior}
 \caption{Menu vertical da biblioteca de participação social.}
 \label{fig:vertical_prototipo}
 \end{figure}
 
 Uma das vantagens do Omeka é a personalização desse menu. Através do painel de administração é possível adicionar e remover opções do menu vertical. Existem vários tipos de customização para o menu vertical, entre eles, podemos adicionar links para visualizar todos os itens disponíveis da biblioteca (Ver itens), assim como especificar todos os itens de uma só coleção (Conselhos, Conferências e Ouvidorias). Uma página sobre, que vai conter todas as informações sobre a biblioteca digital e uma busca avançada, onde o usuário vai poder realizar uma busca mais refinada.
 
-\subsubsection{Página inicial}
+\subsection*{Página inicial}
 
 A página inicial contém uma descrição sobre a biblioteca digital. Na figura \ref{fig:inicial_prototipo} é apresentada uma sugestão inicial de como funcionará a biblioteca de mecanismos formais de participação do Participa.br, assim como uma descrição de cada parte da página.
 
@@ -224,7 +223,7 @@ A página inicial contém uma descrição sobre a biblioteca digital. Na figura 
 	\item \textbf{7 – Listagem de um item na biblioteca} – Nessa listagem os usuários podem verificar o item brevemente. No entanto ao clicar no título é possível acessar o item e todas as suas informações.
 \end{itemize}
 
-\subsubsection{Acesso a um item}
+\subsection*{Acesso a um item}
 
 O acesso a um item é realizado acessando uma coleção. que quando acessado, apresenta todos os itens que compõe aquela coleção são apresentadas na sua forma resumida, conforme será visto na figura \ref{fig:descricao_prototipo}
 
@@ -249,12 +248,12 @@ Adicionalmente, pode-se enriquecer a visualização da página através do plugi
 \graphicspath{{figuras/prototipo/}}
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.7\textwidth]{descricao-item}
+\includegraphics[width=1.0\textwidth]{descricao-item}
 \caption{Descrição de um item na biblioteca do Participa.br.}
 \label{fig:descricao_prototipo}
 \end{figure}
 
-\subsubsection{Buscas}
+\subsection*{Buscas}
 
 A biblioteca fornece duas opções de busca, entre elas, uma busca simples e outra avançada na qual o usuário pode fazer uma busca mais refinada do que se está pesquisando.
 Em relação à busca simples, essa pode ser feita diretamente na barra superior do portal, como ilustrado na figura 3.11.
@@ -263,7 +262,7 @@ Em relação à busca simples, essa pode ser feita diretamente na barra superior
 \graphicspath{{figuras/prototipo/}}
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.7\textwidth]{cabecalho}
+\includegraphics[width=1.0\textwidth]{cabecalho}
 \caption{Busca simples da Biblioteca Digital.}
 \label{fig:buscasimples_prototipo}
 \end{figure}
@@ -278,7 +277,7 @@ Existe uma série de combinações que podem ser feitas para que o usuário cons
 \graphicspath{{figuras/prototipo/}}
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.7\textwidth]{tela-busca}
+\includegraphics[width=1.0\textwidth]{tela-busca}
 \caption{Tela de Busca Avaçanda da Biblioteca Digital.}
 \label{fig:buscaavancada_prototipo}
 \end{figure}
@@ -289,7 +288,7 @@ Essa busca oferece diversos filtros para que o usuário ache somente o que está
 \graphicspath{{figuras/prototipo/}}
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.7\textwidth]{busca-palavra-chave}
+\includegraphics[width=1.0\textwidth]{busca-palavra-chave}
 \caption{Tela de busca por Palavras-Chaves.}
 \label{fig:buscachaves_prototipo}
 \end{figure}
@@ -300,7 +299,7 @@ A busca por palavras-chaves é uma ou mais palavras que resumem os temas princip
 \graphicspath{{figuras/prototipo/}}
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.7\textwidth]{busca-assunto-especifico}
+\includegraphics[width=1.0\textwidth]{busca-assunto-especifico}
 \caption{Tela de Busca por Palavras-Chaves.}
 \label{fig:buscaespecifico_prototipo}
 \end{figure}
@@ -311,7 +310,7 @@ O filtro de campos específicos é utilizado para o usuário filtrar um metadado
 \graphicspath{{figuras/prototipo/}}
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.7\textwidth]{busca-identificadores}
+\includegraphics[width=1.0\textwidth]{busca-identificadores}
 \caption{Tela de Busca por Identificadores.}
 \label{fig:buscaidentificadores_prototipo}
 \end{figure}
@@ -324,7 +323,7 @@ Uma outra busca possível é por coleção, conforme apresentado na figura \ref{
 \graphicspath{{figuras/prototipo/}}
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.7\textwidth]{busca-colecao}
+\includegraphics[width=1.0\textwidth]{busca-colecao}
 \caption{Tela de Busca por Coleção.}
 \label{fig:buscacolecao_prototipo}
 \end{figure}
@@ -335,7 +334,7 @@ Isso ajuda caso o usuário deseje procurar sobre a Conferência Nacional de Saú
 \graphicspath{{figuras/prototipo/}}
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.7\textwidth]{busca-tipo-metadado}
+\includegraphics[width=1.0\textwidth]{busca-tipo-metadado}
 \caption{Tela de Busca por Tipo de Metadado.}
 \label{fig:buscatipometadado_prototipo}
 \end{figure}
@@ -346,7 +345,7 @@ A busca por tipo funciona como uma busca por metadados definidos pelo administra
 \graphicspath{{figuras/prototipo/}}
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.5\textwidth]{busca-criador}
+\includegraphics[width=1.0\textwidth]{busca-criador}
 \caption{Tela de Busca por Criador do Conteúdo.}
 \label{fig:buscacriador_prototipo}
 \end{figure}
@@ -357,7 +356,7 @@ No filtro apresentado na figura \ref{fig:buscacriador_prototipo}, é possível s
 \graphicspath{{figuras/prototipo/}}
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.7\textwidth]{busca-tags}
+\includegraphics[width=1.0\textwidth]{busca-tags}
 \caption{Tela de Busca por Tags.}
 \label{fig:buscatags_prototipo}
 \end{figure}
@@ -368,7 +367,7 @@ Na figura \ref{fig:buscatags_prototipo}, existe uma busca por tag, ou seja, um c
 \graphicspath{{figuras/prototipo/}}
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.7\textwidth]{busca-pub-particular}
+\includegraphics[width=1.0\textwidth]{busca-pub-particular}
 \caption{Tela de Busca por Conteúdo Público ou Particular.}
 \label{fig:buscaconteudo_prototipo}
 \end{figure}
@@ -379,7 +378,7 @@ Na figura \ref{fig:buscaconteudo_prototipo}, é apresentada a possibilidade de s
 \graphicspath{{figuras/prototipo/}}
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.7\textwidth]{busca-destacado}
+\includegraphics[width=1.0\textwidth]{busca-destacado}
 \caption{Tela de Busca por Conteúdo Destacado ou Comum.}
 \label{fig:buscadestacado_prototipo}
 \end{figure}
@@ -392,7 +391,7 @@ Busca por exposição.
 \graphicspath{{figuras/prototipo/}}
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.7\textwidth]{busca-exposicao}
+\includegraphics[width=1.0\textwidth]{busca-exposicao}
 \caption{Tela de Busca por Conteúdo Sobre Exposição.}
 \label{fig:buscaexposicao_prototipo}
 \end{figure}
@@ -401,7 +400,7 @@ Conforme visto na figura \ref{fig:buscaexposicao_prototipo} pode ser realizadas 
 
 Existe ainda um terceiro tipo de busca que não foi elaborada, mas que permite a utilização do Apache Solr, que é um software livre e plataforma de buscas mais robusta que é um projeto do Apache Lucene. Ele é escrito basicamente em Java e substitui a busca básica em MySQL do Omeka, por uma busca mais refinada. Ela oferece uma busca melhor por textos (com marcações de textos encontrados) um algoritmo melhor de ordenação, melhor busca por metadados dentro dos arquivos de cada descrição de um canal formal, melhor interface para os resultados encontrados.
 
-\subsubsection{Resultados da Busca}
+\subsection*{Resultados da Busca}
 
 Quando é realizada uma busca, a biblioteca digital pesquisa em cada item de seu acervo e verifica se a palavra digitada foi encontrada em algum campo. Essas pesquisas incluem também documentos .pdf, .doc, .html, entre outros, que sejam anexados nas catalogações da biblioteca digital. Na figura \ref{fig:resultante_prototipo}, pode-se notar uma pesquisa utilizando a palavra CCFGTS e seu resultado.
 
@@ -409,27 +408,22 @@ Quando é realizada uma busca, a biblioteca digital pesquisa em cada item de seu
 \graphicspath{{figuras/prototipo/}}
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.7\textwidth]{resultado-pesquisa}
+\includegraphics[width=1.1\textwidth]{resultado-pesquisa}
 \caption{Tela de Resultado da Pesquisa.}
 \label{fig:resultante_prototipo}
 \end{figure}
 
 É observado um pequeno resumo da busca no topo da página, contendo o conteúdo pesquisado, ou seja, o termo pesquisado, o tipo de consultado (palavras-chaves, tags, termos exatos, entre outros) e o tipo de registro que deseja encontrar (itens de cada biblioteca, exibições, coleções, entre outros). 
   
-Quando é encontrado um item, ele mostra pelo uso de uma tabela, qual foi o tipo de item que foi encontrado e um hiperlink, com o título do item apontado para onde está localizado o item. Quando se clica nesse item, o navegador é apontado para o endereço do canal resultante da pesquisa. Quando se acesso o conteúdo resultante da pesquisa, ele acessa o conteúdo completo daquela pesquisa, conforme imagem ilustrada na figura \ref{fig:buscaexposicao_prototipo}. 
+Quando é encontrado um item, ele mostra pelo uso de uma tabela, qual foi o tipo de item que foi encontrado e um hiperlink, com o título do item apontado para onde está localizado o item. Quando se clica nesse item, o navegador é apontado para o endereço do canal resultante da pesquisa. Quando se acesso o conteúdo resultante da pesquisa, ele acessa o conteúdo completo daquela pesquisa, conforme imagem ilustrada na figura \ref{fig:resulpesquisa_prototipo}. 
 
 %Figura 3.24 – Tela do item resultante da pesquisa.
 \graphicspath{{figuras/prototipo/}}
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.7\textwidth]{resultante-pesquisa}
+\includegraphics[width=1.0\textwidth]{resultante-pesquisa}
 \caption{Tela do Item Resultante da Pesquisa.}
 \label{fig:resulpesquisa_prototipo}
 \end{figure}
 
-\section{Integração de uma Biblioteca Digital no Participa.br}
-
-
-
-
-
+\subsection{Possibilidades de integração da biblioteca digital com o Participa}
