@@ -38,7 +38,7 @@ Para uma prova de conceito da versão da biblioteca digital do Participa.br que 
 
 Os Metadados serão explicados na subseção \ref{sub:metadadospbr}, onde será feita uma relação com os metadados DC, com os metadados do Participa.br. Em relação ao tipo de conteúdo, somente os no formato de texto digital(HMTL, TXT e PDF) foram relevados, no entanto, já foi levantado que existem conselhos e conferências que disponibilizam vídeos e áudios de suas reuniões. A assinatura digital não foi disponibilizada nessa primeira prova de conceito, já que serão feitas futuras reuniões com os gestores da SGPR com vistas de verificar a necessidade de implementação de assinaturas.
 
-De acordo com o que está apresentado na Figura \ref{fig:modelbibdigital}, o projeto de interface é parte integrante do modelo conceitual do sistema, juntamente com o projeto funcional que especifica as funções a serem oferecidas aos usuários e ao projeto dos metadados associados aos dados que especificam a estrutura e a organização e descrição do conteúdo \cite[pp. 143--145]{arms2000digital} citado em \cite[pp. 190]{ferreira2006interface}.
+De acordo com o que está apresentado na figura \ref{fig:modelbibdigital}, o projeto de interface é parte integrante do modelo conceitual do sistema, juntamente com o projeto funcional que especifica as funções a serem oferecidas aos usuários e ao projeto dos metadados associados aos dados que especificam a estrutura e a organização e descrição do conteúdo \cite[pp. 143--145]{arms2000digital}\cite[pp. 190]{ferreira2006interface}.
 
 \graphicspath{{figuras/}}
 \begin{figure}[H]
@@ -48,8 +48,31 @@ De acordo com o que está apresentado na Figura \ref{fig:modelbibdigital}, o pro
 \label{fig:modelbibdigital}
 \end{figure}
 
-Para o caso dos canais de participação social, esse modelo também pode ser usado como referência, dada a variedade de possibilidades de acesso, tipos de usuários e formas de representação dos artefatos digitais. Tais possibilidades impactam diretamente na construção das interfaces de acesso, dando origem a paradigmas que permitem expressões de busca diferenciadas. 
+Para o caso dos canais de participação social, esse modelo também pode ser usado como referência, dada a variedade de possibilidades de acesso, tipos de usuários e formas de representação dos artefatos digitais. Tais possibilidades impactam diretamente na construção das interfaces de acesso, dando origem a paradigmas que permitem expressões de busca diferenciadas.
 
+Ainda de acordo com esse o modelo ilustrado pela figura \ref{fig:modelbibdigital} faz-se necessário implementar uma biblioteca completa, com os sistemas (busca, navegação, catalogação e demais) totalmente integrados, isso ajuda os usuários com uma biblioteca mais harmônica e robusta, consequentemente, tendo uma confiança na utilização da biblioteca pelo usuário. As figuras \ref{fig:sistemasoftware}  e \ref{fig:entregaveissoftware}
+
+\graphicspath{{figuras/}}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{sistemas}
+\caption[Identificação dos principais componentes de uma biblioteca]{Identificação dos principais componentes de um site. Adaptado de \cite{rosenfeld2002information}}
+\label{fig:sistemasoftware}
+\end{figure}
+
+De acordo com a figura, para melhor entendimento de uma biblioteca digital é necessário entregar um detalhamento maior das arquiteturas que compõe a mesma, isso facilita a interação do usuário com a biblioteca. Um sistema de busca não é composto somente por uma interface bonita ou um bom motor de busca, mas por todo um conjunto integrado. O usuário tem que ser capaz de pesquisar qualquer tipo de conteúdo e ordena-lo de forma que achar melhor e os resultados precisam ser apresentados de forma satisfatória. Para isso é necessário catalogar os artefatos digitais, pois isso ajuda na indexação da pesquisa, assim como ampliar o sistema para permitir o vocabulário semântico. Também é necessário planejar o esquema de navegação da biblioteca, deixando os menus organizados para que facilite a utilização do site pelo usuário.
+
+\graphicspath{{figuras/}}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{entregaveis}
+\caption[Entregáveis de uma biblioteca]{Entregáveis de uma biblioteca. Adaptado de \cite{rosenfeld2002information}}
+\label{fig:entregaveissoftware}
+\end{figure}
+
+A figura \ref{fig:entregaveissoftware} mostra os entregáveis de uma biblioteca, são utilizados para um entendimento melhor do sistema a ser produzido. Os \textit{Blueprints}, também chamados de mapa do site são uma espécie do funcionamento de toda a arquitetura de informação presente no site. Eles mostram as relações de caminho entres as páginas e seus componentes. Os Wireframes descrevem uma página individual, mostrando todos os conteúdos e arquitetura da informação relacionados com a página através de um protótipo. Esse protótipo pode dizer quais informações podem ser informadas para o usuário e servir de insumo para o sistema final. Os vocabulários controlados permitem que um item seja encontrado através de palavras relacionadas, isso ajuda o cliente em interfaces de busca. Um exemplo de vocabulário controlado é um tesauro \footnote{Maiores informações em: \url{http://pt.wikipedia.org/wiki/Tesauro}}. O esquema de metadados, explicado mais detalhadamente na seção \ref{sec:padraometadado} ajudam a catalogar melhor os objetos digitais, fazendo com que a indexação de busca seja melhor.
+
+Nesse primeiro trabalho, foram levantados alguns metadados com base no catálogo de mecanismos formais, disponível no Anexo \ref{Att:catalogomecanismos}. O produto de cada catalogação gerou um primeira versão do esquema de metadados, que é visto na seção \reflabel{sub:metadadospbr}. Apesar de não ser necessariamente um Wireframe, o primeiro protótipo da biblioteca digital de participação social visto na seção \ref{sub:prototipo_biblioteca} pode ser entendido como um, já que apresenta uma interface inicial onde há a exibição de conteúdos para os usuários.
 
 \section{Padrões de metadados para catalogação e sistematização de dados}
 \label{sec:padraometadado}
