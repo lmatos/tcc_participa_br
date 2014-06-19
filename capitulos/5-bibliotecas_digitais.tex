@@ -38,6 +38,8 @@ Para uma prova de conceito da versão da biblioteca digital do Participa.br que 
 
 Os Metadados serão explicados na subseção \ref{sub:metadadospbr}, onde será feita uma relação com os metadados DC, com os metadados do Participa.br. Em relação ao tipo de conteúdo, somente os no formato de texto digital(HMTL, TXT e PDF) foram relevados, no entanto, já foi levantado que existem conselhos e conferências que disponibilizam vídeos e áudios de suas reuniões. A assinatura digital não foi disponibilizada nessa primeira prova de conceito, já que serão feitas futuras reuniões com os gestores da SGPR com vistas de verificar a necessidade de implementação de assinaturas.
 
+\section{Arquitetura das Bibliotecas Digitais}
+
 De acordo com o que está apresentado na figura \ref{fig:modelbibdigital}, o projeto de interface é parte integrante do modelo conceitual do sistema, juntamente com o projeto funcional que especifica as funções a serem oferecidas aos usuários e ao projeto dos metadados associados aos dados que especificam a estrutura e a organização e descrição do conteúdo \cite[pp. 143--145]{arms2000digital}\cite[pp. 190]{ferreira2006interface}.
 
 \graphicspath{{figuras/}}
@@ -60,9 +62,15 @@ Ainda de acordo com esse o modelo ilustrado pela figura \ref{fig:modelbibdigital
 \label{fig:sistemasoftware}
 \end{figure}
 
-O diagrama ilustrado pela figura \ref{fig:sistemasoftware}, representa a arquitetura de informação de um sistema. Se faz necessário ter uma documentação sobre a arquitetura de informação do sistema para os usuários terem um melhor entendimento, facilitando a interação do usuário com a biblioteca.
+O diagrama ilustrado pela figura \ref{fig:sistemasoftware}, representa a arquitetura de informação utilizado em uma biblioteca. Se faz necessário ter uma documentação sobre a arquitetura de informação do sistema para os usuários terem um melhor entendimento, facilitando a interação do usuário com a biblioteca.
 
-Um sistema de busca não é composto somente por uma interface bonita ou um bom motor de busca, mas por todo um conjunto integrado. O usuário tem que ser capaz de pesquisar qualquer tipo de conteúdo e ordena-lo conforme o seu gosto, e os resultados precisam ser apresentados de forma agradável. Para isso é necessário catalogar os artefatos digitais utilizando metadados, pois isso ajuda na indexação da pesquisa, assim como ampliar o sistema para permitir o vocabulário semântico. Também é necessário planejar o esquema de navegação da biblioteca, deixando os menus organizados para que facilite a utilização do site pelo usuário.
+Um sistema de busca não é composto somente por uma interface bonita ou um bom motor de busca, mas por todo um conjunto integrado. O usuário tem que ser capaz de pesquisar qualquer tipo de conteúdo e ordena-lo conforme o seu gosto, e os resultados precisam ser apresentados de forma agradável. Portanto, na sua estrutura interna é preciso garantir que os resultados relativos a uma busca (expressa por um atributo de consulta, chamada de \textit{query}) sejam compatíveis com as demandas dos usuários e, ao mesmo tempo, que esses resultados sejam apresentados segundo uma ordem de importância e também de maneira agradável no sentido de interface. 
+
+Para isso é necessário catalogar os artefatos digitais, pois definindo os metadados adequados facilitam o processo de busca. Adotando os padrões de metadados aceitos pela comunidade, como o Dublin Core, facilita a integração dessa biblioteca com outros contextos e sites de buscas, como é o caso do Google.
+
+A ampliação do sistema para permitir um ambiente semântico permitem buscas mais refinadas, pois permitem que se façam inferências entre objetos correlatos e ajudam a máquina a entender as \textit{querys} dos usuários com mais facilidade. 
+
+Além disso, também é necessário planejar todo o esquema de navegação e menus da biblioteca. Isso deixa a navegação mais ágil, facilitando a utilização do site pelo usuário.
 
 \graphicspath{{figuras/}}
 \begin{figure}[H]
@@ -72,11 +80,11 @@ Um sistema de busca não é composto somente por uma interface bonita ou um bom 
 \label{fig:entregaveissoftware}
 \end{figure}
 
-A figura \ref{fig:entregaveissoftware} mostra os entregáveis de uma biblioteca, são utilizados para um entendimento melhor do sistema a ser produzido. Os \textit{Blueprints}, também chamados de mapa do site são uma espécie do funcionamento de toda a arquitetura de informação presente no site. Eles mostram as relações de caminho entres as páginas e seus componentes. Os Wireframes descrevem uma página individual, mostrando todos os conteúdos e arquitetura da informação relacionados com a página através de um protótipo. Esse protótipo pode dizer quais informações podem ser informadas para o usuário e servir de insumo para o sistema final. Os vocabulários controlados permitem que um item seja encontrado através de palavras relacionadas, isso ajuda o cliente em interfaces de busca. Um exemplo de vocabulário controlado é um tesauro \footnote{Maiores informações em: \url{http://pt.wikipedia.org/wiki/Tesauro}}. O esquema de metadados, explicado mais detalhadamente na seção \ref{sec:padraometadado} ajudam a catalogar melhor os objetos digitais, fazendo com que a indexação de busca seja melhor.
+A figura \ref{fig:entregaveissoftware} mostra os entregáveis de uma biblioteca, que são utilizados para um entendimento melhor do sistema a ser produzido. Esses entregáveis são compostos pelos (i)\textit{Blueprints}, também chamados de mapa do site são uma espécie do funcionamento de toda a arquitetura de informação presente no site. Eles mostram as relações de caminho entres as páginas e seus componentes. (ii) Os Wireframes descrevem uma página individual, mostrando todos os conteúdos e arquitetura da informação relacionados com a página através de um protótipo. Esse protótipo pode dizer quais informações podem ser informadas para o usuário e servir de insumo para o sistema final. (iii) Os vocabulários controlados permitem que um item seja encontrado através de palavras relacionadas, isso ajuda o cliente em interfaces de busca. Um exemplo de vocabulário controlado é um tesauro \footnote{Maiores informações em: \url{http://pt.wikipedia.org/wiki/Tesauro}}. (iv) O esquema de metadados, explicado mais detalhadamente na seção \ref{sec:padraometadado} ajudam a catalogar melhor os objetos digitais, fazendo com que a indexação de busca seja melhor.
 
 Nesse primeiro trabalho, foram levantados alguns metadados com base no catálogo de mecanismos formais, disponível no Anexo \ref{Att:catalogomecanismos}. O produto de cada catalogação gerou um primeira versão do esquema de metadados, que é visto na seção \ref{cap:bibinterop}{sub:metadadospbr}. Apesar de não ser necessariamente um Wireframe, o primeiro protótipo da biblioteca digital de participação social visto na seção \ref{sub:prototipo_biblioteca} pode ser entendido como um, já que apresenta uma interface inicial onde há a exibição de conteúdos para os usuários.
 
-\section{Padrões de metadados para catalogação e sistematização de dados}
+\section{Padrões de Metadados para Catalogação e Sistematização de Dados}
 \label{sec:padraometadado}
 
 Na biblioteconomia, o metadado é dado estruturado que compartilha diversas características similares para a catalogação e descrevem as características de um determinado recurso informacional. Um registro de metadados consiste em um número predefinido de elementos que representam atributos específicos de um objeto e cada elemento pode estar associado a um ou mais valores. Os esquemas de metadados devem possuir (independente da área de conhecimento) um número limitado de elementos, o nome de cada elemento e o significado de cada elemento.
@@ -93,7 +101,7 @@ Em relação agrupamento dos elementos de metadados de um recursos computacional
 
 Do ponto de vista do grau de dificuldade de uso dos padrões, os metadados, podem ser classificados em formatos de bandas um, dois e três \cite{feitosa2006organizacao}. Os formatos de metadados de banda um envolvem a indexação automática de texto integral, e em geral é feito por softwares proprietários, portanto não acessíveis para manipulação.
 
-Os formatos de banda dois permitem a descrição que não exige grande especialidade para sua aplicação enquanto os formatos de banda três são aqueles que provêem uma descrição mais especializada, geralmente descrita segundo padrões estabelecidos, como o AACR2 (vide exemplo na figura \ref{fig:aacr2}). 
+Os formatos de banda dois permitem a descrição que não exige grande especialidade para sua aplicação enquanto os formatos de banda três são aqueles que provêm uma descrição mais especializada, geralmente descrita segundo padrões estabelecidos, como o AACR2 (vide exemplo na figura \ref{fig:aacr2}). 
 
 \graphicspath{{figuras/}}
 \begin{figure}[H]
