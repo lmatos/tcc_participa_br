@@ -24,12 +24,11 @@ EDITAVEIS_SOURCES = informacoes.tex errata.tex dedicatoria.tex \
 EDITAVEIS_FILES = $(addprefix $(EDITAVEIS_DIR)/, $(EDITAVEIS_SOURCES))
 
 CHAPTERS_DIR = capitulos
-CHAPTERS_SOURCES = 1-introducao.tex 2-participacao_social.tex \
-				   3-participa_br.tex 4-noosfero.tex \
-				   5-bibliotecas_digitais.tex \
-				   6-biblioteca_digital_participa.tex \
-				   7-estendendo_participa.tex \
-				   8-consideracoes.tex
+CHAPTERS_SOURCES = 1-introducao.tex 2-bibliotecas_digitais_integracao.tex \
+				   3-forma_interoperabilidade.tex 4-noosfero.tex \
+				   5-o_participa_br.tex \
+				   6-estudo_de_caso.tex \
+				   7-conclusao.tex
 
 CHAPTERS_FILES = $(addprefix $(CHAPTERS_DIR)/, $(CHAPTERS_SOURCES))
 
